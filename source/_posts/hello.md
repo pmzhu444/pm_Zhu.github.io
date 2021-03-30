@@ -12,4 +12,4 @@ tags: 随笔
 
 ​		小猪小猪卡木昂~
 
-![cy](C:\Users\1\Pictures\Saved Pictures\cy.jpg)
+![cy](D:\GitRepository\pmzhu444.github.io\source\pic\hello\cy.jpg)
