@@ -10,6 +10,9 @@ tags: 随笔
 
 ​		以后遇到的想分享的事、踩过的坑、学习笔记就写在这啦，一方面和大家分享，虽然不一定对，但总有一定的参考价值嘛；另一方面，也督促自己多多总结，也便于以后复习，以前也用过各种各样的方式记笔记（OneNote呀，印象呀，Github呀，还有其他的一些），不是不好用，真的是写完了就完了，懒得复习，就没用了呀，在这至少还有可能被别人看一下，对不对的就请大家多多包涵啦~
 
-​		小猪小猪卡木昂~
+​		小猪小猪卡木昂~<br><br> 
 
-![cy](D:\GitRepository\pmzhu444.github.io\source\pic\hello\cy.jpg)
+<div align=center> {% asset_img cy.jpg This is an example image %}
+
+
+
