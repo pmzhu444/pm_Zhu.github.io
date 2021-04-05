@@ -251,6 +251,24 @@ https://blog.csdn.net/weixin_43669250/article/details/103588588
 
 <br>
 
+
+
 好啦，搞了一天，只记得这么多了，希望对大家有帮助~
+
+
+
+---
+
+我又来啦~
+
+趁着放假又试了一下，上面的问题应该是我Github用的不熟悉导致的，呜呜呜
+
+但是，将git文件夹（xxx.github.io）复制一份出去，是好用的喔（前提应该是有环境的话）。
+
+呐呐呐，先这样，去写端口转发的问题了~
+
+<br>
+
+<br>
 
 <div align=center> {% asset_img cy.jpg This is an example image %}
