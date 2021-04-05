@@ -34,7 +34,7 @@ https://zhuanlan.zhihu.com/p/26625249
 注：Github账户名一定输入对喔~ 如果输错了就去仓库的setting里改呗
 ```
 
-<div align=center> {% asset_img 1.png This is an example image %}
+<div align=center> {% asset_img 1.png This is an example image %}</div>
 
 
 
@@ -109,7 +109,8 @@ https://zhuanlan.zhihu.com/p/26625249
 
   branch为master（后面如果修改git分支不要忘了改喔）
 
-<div align=center> {% asset_img 2.png This is an example image %}
+<div align=center> {% asset_img 2.png This is an example image %}</div>
+
 
 - 保存站点配置文件
 
@@ -154,7 +155,7 @@ https://zhuanlan.zhihu.com/p/26625249
 
 - 再次打开_config.yml文件，修改themes为clone的文件夹的名字：
 
-  <div align=center> {% asset_img 3.png This is an example image %}
+  <div align=center> {% asset_img 3.png This is an example image %}</div>
 
 - 再次执行第4步中的三条命令，将新的主题部署好，再去浏览器中看一下，有咩有满足你呢？
 
@@ -255,7 +256,13 @@ https://blog.csdn.net/weixin_43669250/article/details/103588588
 
 好啦，搞了一天，只记得这么多了，希望对大家有帮助~
 
+<br>
 
+<br>
+
+<br>
+
+<br>
 
 ---
 
@@ -271,4 +278,4 @@ https://blog.csdn.net/weixin_43669250/article/details/103588588
 
 <br>
 
-<div align=center> {% asset_img cy.jpg This is an example image %}
+<div align=center> {% asset_img cy.jpg This is an example image %}</div>

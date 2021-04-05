@@ -8,7 +8,9 @@ tags: [踩坑, 环境]
 
 实验室新配了一台文件服务器，不过没放在实验室。。服务器做了samba服务，想要在实验室访问，只能通过smb服务，这对使用mac和linux系统的人就很舒服啦。mac直接在服务器搜索器中填写搜索的ip地址（例如：smb://11.10.11.55），然后连接，输入用户名和密码就好啦；linux应该是使用 -p 选项指定端口号的方式直接公网访问samba服务（这个没试）。但是对实验室的windows电脑就很头大，windows因为黑客攻击、比特币勒索等原因禁用了445端口。所以在win下不能通过正常方式访问，需要用端口转发实现访问。
 
+<!-- more -->
 
+<br>
 
 好叭，划重点！！！
 
@@ -60,7 +62,7 @@ tags: [踩坑, 环境]
 
      - 应该显示如下哦
 
-     <div align=center> {% asset_img 1.jpg This is an example image %}
+     <div align=center> {% asset_img 1.jpg This is an example image %}</div>
 
      ```
      netstat -ano|findstr "445"
@@ -78,33 +80,34 @@ tags: [踩坑, 环境]
 
    - 打开控制面板，然后点击程序，找到打开或关闭Windows功能，找到smb 1.0 ，全选，全部安装。
 
-   <div align=center> {% asset_img 5.jpg This is an example image %}
+   <div align=center> {% asset_img 5.jpg This is an example image %}</div>
 
-   - 重启电脑
-
-     - 运行上面那段代码
-
+   
+- 重启电脑
+   
+  - 运行上面那段代码
+   
        ```
        netstat -ano|findstr "445"
-       ```
-
-     - 应该显示如下哦，主要是第一条！！
-
-       <div align=center> {% asset_img 2.jpg This is an example image %}
-
-     - 打开任务管理器，上图中的进程号对应的任务名称与服务应该分别为svchost.exe与iphlpsvc
-
-       <div align=center> {% asset_img 3.jpg This is an example image %}
-
-       <div align=center> {% asset_img 4.jpg This is an example image %}
-
-   - 一般来说，到这一步就可以啦，然后就可以去映射驱动器了~
-
-     - 右击此电脑，选择映射网络驱动器，输入文件夹路径，例**\\\\127.0.0.1\\work**，选择使用其他凭据连接，完成后输入用户名和密码就ok啦！
-
-     - 效果如下
-
-       <div align=center> {% asset_img 6.jpg This is an example image %}
+    ```
+   
+  - 应该显示如下哦，主要是第一条！！
+   
+    <div align=center> {% asset_img 2.jpg This is an example image %}</div>
+   
+  - 打开任务管理器，上图中的进程号对应的任务名称与服务应该分别为svchost.exe与iphlpsvc
+   
+    <div align=center> {% asset_img 3.jpg This is an example image %}</div>
+   
+    <div align=center> {% asset_img 4.jpg This is an example image %}</div>
+   
+- 一般来说，到这一步就可以啦，然后就可以去映射驱动器了~
+   
+  - 右击此电脑，选择映射网络驱动器，输入文件夹路径，例**\\\\127.0.0.1\\work**，选择使用其他凭据连接，完成后输入用户名和密码就ok啦！
+   
+  - 效果如下
+   
+       <div align=center> {% asset_img 6.jpg This is an example image %}</div>
 
 ## 问题：
 

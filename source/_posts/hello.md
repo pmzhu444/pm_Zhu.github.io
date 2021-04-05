@@ -12,7 +12,8 @@ tags: 随笔
 
 ​		小猪小猪卡木昂~~<br><br> 
 
-<div align=center> {% asset_img cy.jpg This is an example image %}
+<div align=center> {% asset_img cy.jpg This is an example image %}</div>
+
 
 
 
