@@ -1,6 +1,6 @@
 ---
 title: SpringBoot
-date: 2021-04-05 16:11:50
+date: 2021-05-04 16:11:50
 tags: [踩坑, 笔记]
 ---
 
@@ -42,8 +42,9 @@ tags: [踩坑, 笔记]
        最容易导入的错误包：*importcom.alibaba.dubbo.config.annotation.Service;*      正确的包应该是*importorg.springframework.stereotype.Service;*
 
 4. 报错：无法注入！
-   - 启动类忘了扫描mapper吧
-
+   
+- 启动类忘了扫描mapper吧
+   
 5. 数据库(postgresql)时间戳时间比较：（数据库中为时间戳timestamp类型）
    - 字符串转为date类型：to_date(#{ arg2 }, 'yyyy-mm-dd hh24:mi:ss')可比较>(&gt;)、<(&lt;)、>=(&gt;=)、<=(&lt;=) 不能比较相等 =  
    - 字符串转为timestamp类型可比较等于=：to_timestamp(#{ arg1 }, 'yyyy-mm-dd hh24:mi:ss')
@@ -129,4 +130,5 @@ tags: [踩坑, 笔记]
     -  注：jdk版本必须与原来压缩时的版本一致
 
 11. @PostConstruct 注解作用
+    
     - 在Springboot项目启动的时候所执行的方法。在Bean加载完但用户线程进来之间执行的方法。
