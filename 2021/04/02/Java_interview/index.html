@@ -12,16 +12,23 @@
   <meta name="description" content="Java面试小菜鸡也是要找工作的嘛，虽然才研一，基础不好，早早就要开始看咯。反正看了也会忘，忘了就来这再看一遍呗~  本文是在网上到处搜集的喔，侵权删。  持续更新中~~~">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java面试复习">
-<meta property="og:url" content="http://example.com/2021/04/02/Java%E9%9D%A2%E8%AF%95/index.html">
+<meta property="og:url" content="http://example.com/2021/04/02/Java_interview/index.html">
 <meta property="og:site_name" content="pmZhu&#39;s blog">
 <meta property="og:description" content="Java面试小菜鸡也是要找工作的嘛，虽然才研一，基础不好，早早就要开始看咯。反正看了也会忘，忘了就来这再看一遍呗~  本文是在网上到处搜集的喔，侵权删。  持续更新中~~~">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/04/02/Java_interview/1.jpg">
+<meta property="og:image" content="http://example.com/2021/04/02/Java_interview/2.jpg">
+<meta property="og:image" content="http://example.com/2021/04/02/Java_interview/3.png">
+<meta property="og:image" content="http://example.com/2021/04/02/Java_interview/4.png">
+<meta property="og:image" content="http://example.com/2021/04/02/Java_interview/5.png">
+<meta property="og:image" content="http://example.com/2021/04/02/Java_interview/6.png">
 <meta property="article:published_time" content="2021-04-02T08:03:45.000Z">
-<meta property="article:modified_time" content="2021-05-25T07:41:17.955Z">
+<meta property="article:modified_time" content="2021-06-08T10:46:19.455Z">
 <meta property="article:author" content="pm Zhu">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="面试">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/04/02/Java_interview/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="pmZhu&#39;s blog" type="application/atom+xml">
   
@@ -266,10 +273,10 @@
         </header>
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Java面试" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Java_interview" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a  href="/2021/04/02/Java%E9%9D%A2%E8%AF%95/" class="article-date">
+      <a  href="/2021/04/02/Java_interview/" class="article-date">
       <time datetime="2021-04-02T08:03:45.000Z" itemprop="datePublished">2021-04-02</time>
 </a>
 
@@ -440,16 +447,107 @@
 </li>
 </ul>
 <h2 id="4、大厂面试题"><a href="#4、大厂面试题" class="headerlink" title="4、大厂面试题"></a>4、大厂面试题</h2><h3 id="字节跳动"><a href="#字节跳动" class="headerlink" title="字节跳动"></a>字节跳动</h3><h4 id="java实习一面"><a href="#java实习一面" class="headerlink" title="java实习一面"></a>java实习一面</h4><ol>
-<li>TCP连接过程，哪些过程，分别有什么用</li>
-<li>序列号是随机取的吗</li>
-<li>拥塞控制</li>
-<li>MySQL索引</li>
-<li>B+树对比B树的好处</li>
-<li>乐观锁、CMS在哪用到，与悲观锁的区别</li>
-<li>synchronized原理，和Reentrant Lock的区别</li>
-<li>synchronized底层技术，为什么慢</li>
-<li>幻读是什么？MySQL怎么解决幻读</li>
-<li>介绍一下ES</li>
+<li><p>TCP连接过程，哪些过程，分别有什么用</p>
+<hr>
+<ul>
+<li><p>三次握手（连接）</p>
+<p>TCP连接的建立采用客户-服务器模式：主动发起连接建立的应用进程叫做客户，被动等待连接建立的应用进程叫做服务器</p>
+<ul>
+<li>第一次握手：客户端的应用进程主动打开，并向服务端发出请求报文段。其首部中：SYN=1,seq=x。</li>
+<li>第二次握手：服务器应用进程被动打开。若同意客户端的请求，则发回确认报文，其首部中：SYN=1,ACK=1,ack=x+1,seq=y。</li>
+<li>第三次握手：客户端收到确认报文之后，通知上层应用进程连接已建立，并向服务器发出确认报文，其首部：ACK=1,ack=y+1。当服务器收到客户端的确认报文之后，也通知其上层应用进程连接已建立。</li>
+</ul>
+<p>在这个过程中，通信双方的状态如下图，其中CLOSED：关闭状态、LISTEN：收听状态、SYN-SENT：同步已发送、SYN-RCVD：同步收到、ESTABLISHED：连接已建立</p>
+<div align=center> <img src="/2021/04/02/Java_interview/1.jpg" class="" title="This is an example image"></div></li>
+<li><p>四次挥手（关闭）</p>
+<p>由于TCP连接是全双工的，因此每个方向都必须单独进行关闭。这原则是当一方完成它的数据发送任务后就能发送一个FIN来终止这个方向的连接。收到一个 FIN只意味着这一方向上没有数据流动，一个TCP连接在收到一个FIN后仍能发送数据。首先进行关闭的一方将执行主动关闭，而另一方执行被动关闭。</p>
+<ul>
+<li>TCP客户端发送一个FIN，用来关闭客户到服务器的数据传送。</li>
+<li>服务器收到这个FIN，它发回一个ACK，确认序号为收到的序号加1。和SYN一样，一个FIN将占用一个序号。</li>
+<li>服务器关闭客户端的连接，发送一个FIN给客户端。</li>
+<li>客户端发回ACK报文确认，并将确认序号设置为收到序号加1。</li>
+</ul>
+<div align=center> <img src="/2021/04/02/Java_interview/2.jpg" class="" title="This is an example image"></div></li>
+<li><p>状态介绍</p>
+<ul>
+<li>CLOSED：关闭，初始状态</li>
+<li>LISTEN：服务器端的某个socket处于监听状态，可接受连接</li>
+<li>SYN_RCVD：接受到了SYN报文，服务器端的SOCKET在建立TCP连接时的三次握手会话过程中的一个中间状态，很短暂，当收到客户端的ACK报文后，它会进入到ESTABLISHED状态。</li>
+<li>SYN_SENT：这个状态与SYN_RCVD遥想呼应，当客户端SOCKET执行CONNECT连接时，它首先发送SYN报文，因此也随即它会进入到了SYN_SENT状态，并等待服务端的发送三次握手中的第2个报文。SYN_SENT状态表示客户端已发送SYN报文。</li>
+<li>ESTABLISHED：连接已经建立</li>
+<li>FIN_WAIT_1：FIN_WAIT_1和FIN_WAIT_2状态的真正含义都是表示等待对方的FIN报文。而这两种状态的区别是：FIN_WAIT_1状态实际上是当SOCKET在ESTABLISHED状态时，它想主动关闭连接，向对方发送了FIN报文，此时该SOCKET即进入到FIN_WAIT_1状态。而当对方回应ACK报文后，则进入到FIN_WAIT_2状态，当然在实际的正常情况下，无论对方何种情况下，都应该马上回应ACK报文，所以FIN_WAIT_1状态一般是比较难见到的，而FIN_WAIT_2状态还有时常常可以用netstat看到。</li>
+<li>FIN_WAIT_2：FIN_WAIT_2状态下的SOCKET，表示半连接，也即有一方要求close连接，但另外还告诉对方，我暂时还有点数据需要传送给你，稍后再关闭连接这就是著名的半关闭的状态了，这是在关闭连接时，客户端和服务器两次握手之后的状态。在这个状态下，应用程序还有接受数据的能力，但是已经无法发送数据，但是也有一种可能是，客户端一直处于FIN_WAIT_2状态，而服务器则一直处于WAIT_CLOSE状态，而直到应用层来决定关闭这个状态。</li>
+<li>TIME_WAIT：表示收到了对方的FIN报文，并发送出了ACK报文，就等2MSL后即可回到CLOSED可用状态了。如果FIN_WAIT_1状态下，收到了对方同时带FIN标志和ACK标志的报文时，可以直接进入到TIME_WAIT状态，而无须经过FIN_WAIT_2状态。</li>
+<li>CLOSING：这种状态比较特殊，实际情况中应该是很少见，属于一种比较罕见的例外状态。正常情况下，当你发送FIN报文后，按理来说是应该先收到（或同时收到）对方的ACK报文，再收到对方的FIN报文。但是CLOSING状态表示你发送FIN报文后，并没有收到对方的ACK报文，反而却也收到了对方的FIN报文。什么情况下会出现此种情况呢？其实细想一下，也不难得出结论：那就是如果双方几乎在同时close一个SOCKET的话，那么就出现了双方同时发送FIN报文的情况，也就会出现CLOSING状态，表示双方都正在关闭SOCKET连接。</li>
+<li>CLOSE_WAIT：这种状态的含义其实是表示在等待关闭。怎么理解呢？当对方close一个SOCKET后发送FIN报文给自己，你系统毫无疑问地会回应一个ACK报文给对方，此时则进入到CLOSE_WAIT状态。接下来呢，实际上你真正需要考虑的事情是查看你是否还有数据发送给对方，如果没有的话，那么你也就可以close这个SOCKET，发送FIN报文给对方，也即关闭连接。所以你在CLOSE_WAIT状态下，需要完成的事情是等待你去关闭连接。</li>
+<li>LAST_ACK：这个状态还是比较容易好理解的，它是被动关闭一方在发送FIN报文后，最后等待对方的ACK报文。当收到ACK报文后，也即可以进入到CLOSED可用状态了。</li>
+</ul>
+</li>
+</ul>
+<hr>
+</li>
+<li><p>序列号是随机取的吗</p>
+<hr>
+<p><strong>是</strong></p>
+<p>在TCP的三次握手中，采用随机产生的初始化序列号进行请求，这样做主要是出于网络安全的因素着想。如果不是随机产生初始序列号，黑客将会以很容易的方式获取到你与其他主机之间通信的初始化序列号，并且伪造序列号进行攻击，这已经成为一种很常见的网络攻击手段。</p>
+<hr>
+</li>
+<li><p>拥塞控制</p>
+<hr>
+<ul>
+<li><p>网络拥塞：在某段时间，若<strong>对网络中某一资源的需求超过了该资源所能提供的可用部分，网络性能就要变坏</strong></p>
+<div align=center> <img src="/2021/04/02/Java_interview/3.png" class="" title="This is an example image"></div></li>
+</ul>
+<p><strong>TCP的四种拥塞控制算法</strong></p>
+<ul>
+<li>慢开始</li>
+<li>拥塞避免</li>
+<li>快重传</li>
+<li>快恢复</li>
+</ul>
+<p><strong>过程举例</strong></p>
+<p>传输轮次：发送方给接收方发送数据报文段后，接收方给发送方发回相应的确认报文段，一个传输轮次所经历的时间就是往返时间RTT(RTT并非是恒定的数值）</p>
+<p>使用传输轮次是为了强调，把拥塞窗口cwnd所允许发送的报文段都连续发送出去，并收到了对已发送的最后一个报文段的确认，拥塞窗口cwnd会随着网络拥塞程度以及所使用的拥塞控制算法动态变化。</p>
+<p>在tcp双方建立逻辑链接关系时， 拥塞窗口cwnd的值被设置为1，还需设置慢开始门限ssthresh,在执行慢开始算法时，发送方每收到一个对新报文段的确认时，就把拥塞窗口cwnd的值加一，然后开始下一轮的传输，当拥塞窗口cwnd增长到慢开始门限值时，就使用拥塞避免算法。</p>
+<ul>
+<li>慢开始</li>
+</ul>
+<p>假设当前发送方拥塞窗口cwnd的值为1，而发送窗口swnd等于拥塞窗口cwnd，因此发送方当前只能发送一个数据报文段（拥塞窗口cwnd的值是几，就能发送几个数据报文段），接收方收到该数据报文段后，给发送方回复一个确认报文段，发送方收到该确认报文后，将拥塞窗口的值变为2，发送方此时可以连续发送两个数据报文段，接收方收到该数据报文段后，给发送方一次发回2个确认报文段，发送方收到这两个确认报文后，将拥塞窗口的值加2变为4，发送方此时可连续发送4个报文段，接收方收到4个报文段后，给发送方依次回复4个确认报文，发送方收到确认报文后，将拥塞窗口加4，置为8，发送方此时可以连续发送8个数据报文段，接收方收到该8个数据报文段后，给发送方一次发回8个确认报文段，发送方收到这8个确认报文后，将拥塞窗口的值加8变为16，以此类推</p>
+<p>当前的拥塞窗口cwnd的值已经等于慢开始门限值，之后改用拥塞避免算法。</p>
+<ul>
+<li>拥塞避免</li>
+</ul>
+<p>每个传输轮次，拥塞窗口cwnd只能线性加一，而不是像慢开始算法时，每个传输轮次，拥塞窗口cwnd按指数增长。</p>
+<p>同理，16+1……直至到达24，假设24个报文段在传输过程中丢失4个，接收方只收到20个报文段，给发送方依次回复20个确认报文段，一段时间后，丢失的4个报文段的重传计时器超时了，发送发判断可能出现拥塞，更改cwnd和ssthresh.并重新开始慢开始算法，如图所示：</p>
+<div align=center> <img src="/2021/04/02/Java_interview/4.png" class="" title="This is an example image"></div>
+
+<div align=center> <img src="/2021/04/02/Java_interview/5.png" class="" title="This is an example image"></div>
+
+<ul>
+<li>快重传</li>
+</ul>
+<p>当发送方收到了累计3个连续的针对某号报文段的重复确认，立即重传该报文段，接收方收到后，给发送方发回针对最后收到的报文的确认，表明，这个报文之前的的报文都收到了，这样就不会造成发送方对某个报文的超时重传，而是提早实现了重传。</p>
+<div align=center> <img src="/2021/04/02/Java_interview/6.png" class="" title="This is an example image"></div>
+
+<ul>
+<li>快恢复</li>
+</ul>
+<p>当发送方收到了三个重复的确认时，就知道现在只是丢了个别的报文段，于是不启动慢开始算法，而是执行快恢复算法。</p>
+<div align=center> </div></li>
+<li><p>MySQL索引</p>
+</li>
+<li><p>B+树对比B树的好处</p>
+</li>
+<li><p>乐观锁、CMS在哪用到，与悲观锁的区别</p>
+</li>
+<li><p>synchronized原理，和Reentrant Lock的区别</p>
+</li>
+<li><p>synchronized底层技术，为什么慢</p>
+</li>
+<li><p>幻读是什么？MySQL怎么解决幻读</p>
+</li>
+<li><p>介绍一下ES</p>
+</li>
 </ol>
 <h4 id="java实习二面"><a href="#java实习二面" class="headerlink" title="java实习二面"></a>java实习二面</h4><ol>
 <li>JAVA 异步实现，线程池，es 索引</li>
@@ -483,13 +581,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a  href="/2021/04/02/Java%E9%9D%A2%E8%AF%95/">Java面试复习</a></p>
+        <p><span>本文标题:</span><a  href="/2021/04/02/Java_interview/">Java面试复习</a></p>
         <p><span>文章作者:</span><a  href="/" title="访问  的个人博客"></a></p>
         <p><span>发布时间:</span>2021年04月02日 - 16时03分</p>
-        <p><span>最后更新:</span>2021年05月25日 - 15时41分</p>
+        <p><span>最后更新:</span>2021年06月08日 - 18时46分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2021/04/02/Java%E9%9D%A2%E8%AF%95/" title="Java面试复习">http://example.com/2021/04/02/Java%E9%9D%A2%E8%AF%95/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2021/04/02/Java%E9%9D%A2%E8%AF%95/　　作者: " title=""></span>
+            <span>原始链接:</span><a class="post-url" href="/2021/04/02/Java_interview/" title="Java面试复习">http://example.com/2021/04/02/Java_interview/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2021/04/02/Java_interview/　　作者: " title=""></span>
         </p>
         <p>
             <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
@@ -612,7 +710,7 @@ gitment.render('comments')
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/05/05/mybatis/">mybatis</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/04/springboot/">SpringBoot</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/10/Design_pattern/">设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/05/portproxy/">Win10 通过 445 端口映射访问公网smb服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/02/Java%E9%9D%A2%E8%AF%95/">Java面试复习</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/30/blog/">Github+Hexo 个人博客搭建过程（基础）</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/30/hello/">哈喽呀</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/30/hello-world/">Hello World</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/05/05/mybatis/">mybatis</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/04/springboot/">SpringBoot</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/10/Design_pattern/">设计模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/05/portproxy/">Win10 通过 445 端口映射访问公网smb服务</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/02/Java_interview/">Java面试复习</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/30/blog/">Github+Hexo 个人博客搭建过程（基础）</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/30/hello/">哈喽呀</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/03/30/hello-world/">Hello World</a></li></ul>
     
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 
