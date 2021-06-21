@@ -506,8 +506,56 @@ tags: [笔记, 面试]
 #### java 实习三面
 
 1. ES/kafka
+
 2. 智力题。圆形湖中间一只鸭，岸边一只老虎，鸭的速度为s，老虎速度为4s，湖半径为r，鸭子到岸边即可安全逃脱，问什么情况下鸭子能顺利逃脱
+
 3. 编程题。k 个一组反转列表，不足k 个也要反转
+
+   ```java
+   class Solution {
+       public ListNode reverseKGroup(ListNode head, int k) {
+           ListNode hair = new ListNode(0);
+           hair.next = head;
+           ListNode pre = hair;
+   
+           while (head != null) {
+               ListNode tail = pre;
+               // 查看剩余部分长度是否大于等于 k
+               for (int i = 0; i < k; ++i) {
+                   if (tail.next == null) {
+                       break;
+                   }
+                   tail = tail.next;
+               }
+               ListNode nex = tail.next;
+               ListNode[] reverse = myReverse(head, tail);
+               head = reverse[0];
+               tail = reverse[1];
+               // 把子链表重新接回原链表
+               pre.next = head;
+               tail.next = nex;
+               pre = tail;
+               head = tail.next;
+           }
+   
+           return hair.next;
+       }
+   
+       public ListNode[] myReverse(ListNode head, ListNode tail) {
+           ListNode prev = tail.next;
+           ListNode p = head;
+           while (prev != tail) {
+               ListNode nex = p.next;
+               p.next = prev;
+               prev = p;
+               p = nex;
+           }
+           return new ListNode[]{tail, head};
+       }
+   }
+   ```
+
+   
 
 #### java后端日常实习
 
