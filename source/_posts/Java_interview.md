@@ -560,9 +560,17 @@ tags: [笔记, 面试]
 #### java后端日常实习
 
 1. ping 是通过什么协议实现的？
+
+   使用的是 ICMP协议，是“Internet Control Message Protocol”（Internet控制消息协议）的缩写，是 TCP/IP协议族的一个子协议，用于在IP主机、路由器之间传递控制消息。
+
 2. DNS 的主要过程
+
 3. 如果服务器的ip 地址发生了变化，如何通知给DNS 服务器？
+
 4. TCP 中的CLOSE-WAIT 状态是什么，为什么要有CLOSE-WAIT 状态？
+
 5. 如何实现UDP 的可靠数据传输？
+
 6. 路由器和交换机具体都实现了什么功能？路由选择是如何实现的？
+
 7. 介绍一下IPv6
